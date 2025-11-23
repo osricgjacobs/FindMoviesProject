@@ -12,7 +12,6 @@ function MovieCard({
 }) {
   return (
     <div className="movie-card">
-      <p className="text-white">{title}</p>
       <img
         src={
           poster_path
