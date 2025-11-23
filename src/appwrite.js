@@ -14,7 +14,7 @@ export const upDateSearchCount = async (searchTerm, movie) => {
   //1. Use Appwrite to check if search term already exists. If found inc count, if not create new.
   try {
     const result = await database.listDocuments(DATABASE_ID, Collection_ID, [
-      (Query.equal("searchTerm", searchTerm)),
+      Query.equal("searchTerm", searchTerm),
     ]);
 
     if (result.documents.length > 0) {
@@ -47,5 +47,17 @@ export const upDateSearchCount = async (searchTerm, movie) => {
         "APPWRITE TROUBLESHOOTING: Check that your Table has attributes named 'searchTerm' (String) and 'count' (Integer)."
       );
     }
+  }
+};
+
+export const getTrendingMovies = async () => {
+  try {
+    const result = await database.listDocuments(DATABASE_ID, Collection_ID, [
+      Query.limit(5),
+      Query.orderDesc("count"),
+    ]);
+    return result.documents;
+  } catch (error) {
+    return [];
   }
 };
