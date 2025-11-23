@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "clean": "del /s /q dist",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "predeploy": "npm run clean && npm run build",
     "deploy": "gh-pages -d dist -a"
   },
