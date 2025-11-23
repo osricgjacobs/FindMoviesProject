@@ -4,10 +4,10 @@ function Search({ searchTerm, setSearchTerm }) {
   return (
     <div className="search">
       <div>
-        <img src="/search.svg" alt="search" />
+        <img src="search.svg" alt="search" />
         <input
           type="text"
-          placeholder="Search Through thousands of movies"
+          placeholder="Search through The Movies DB"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
